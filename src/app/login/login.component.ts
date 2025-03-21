@@ -19,7 +19,7 @@ export class LoginComponent {
 
   onSubmit() {
     // Lógica de autenticación (simulada)
-    if (this.nombreUsuario === 'usuario' && this.contrasena === 'contraseña') {
+    if (this.nombreUsuario === 'Carlos' && this.contrasena === '1234') {
       // Redirigir a la página home
       this.router.navigate(['/home']);
     } else {
