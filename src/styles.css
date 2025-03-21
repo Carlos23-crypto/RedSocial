@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    height: 100vh;
+    animation: changeBackground 10s infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-color: #ff6b6b;
+    }
+    20% {
+        background-color: #f94d9f;
+    }
+    40% {
+        background-color: #9068be;
+    }
+    60% {
+        background-color: #3b82f6;
+    }
+    80% {
+        background-color: #4ade80;
+    }
+    100% {
+        background-color: #ff6b6b;
+    }
+}
