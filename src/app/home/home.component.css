@@ -1,0 +1,99 @@
+/* Estilos generales */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+    padding: 1rem;
+  }
+  
+  /* Contenedor superior */
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    height: 50px; /* Ajusta el tamaño del logo */
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+  }
+  
+  .search-button {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6; /* Color azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #2563eb; /* Color azul más oscuro al pasar el mouse */
+  }
+  
+  /* Contenedor principal */
+  .main-container {
+    display: flex;
+    flex: 1; /* Ocupa el espacio restante */
+    gap: 1rem; /* Espacio entre los contenedores */
+  }
+  
+  /* Contenedor izquierdo con enlaces */
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+    padding: 1rem;
+    border-radius: 10px;
+    width: 200px; /* Ancho fijo */
+  }
+  
+  .nav-link {
+    color: #333; /* Color de texto oscuro */
+    text-decoration: none;
+    margin-bottom: 1rem; /* Espacio entre enlaces */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #3b82f6; /* Color azul al pasar el mouse */
+  }
+  
+  /* Contenedor central */
+  .center-container {
+    flex: 1; /* Ocupa el espacio restante */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .center-container h1 {
+    margin-bottom: 1rem;
+    color: #333; /* Color de texto oscuro */
+  }
+  
+  .center-container p {
+    color: #555; /* Color de texto gris */
+  }
