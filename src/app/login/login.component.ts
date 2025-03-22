@@ -14,6 +14,16 @@ export class LoginComponent {
   nombreUsuario: string = '';
   contrasena: string = '';
   errorMessage: string = '';
+  mostrarModal: boolean = false;
+
+  nuevoUsuario = {
+    nombre: '',
+    apellidoPat: '',
+    apellidoMat: '',
+    edad: null,
+    usuario: '',
+    password: ''
+  };
 
   constructor(private router: Router) {} // Inyecta el servicio Router
 
@@ -32,5 +42,20 @@ export class LoginComponent {
     this.nombreUsuario = '';
     this.contrasena = '';
     this.errorMessage = ''; // Limpiar el mensaje de error al limpiar los campos
+  }
+
+  // Métodos para manejar el modal de registro
+  abrirRegistro(event: Event) {
+    event.preventDefault();
+    this.mostrarModal = true;
+  }
+
+  cerrarRegistro() {
+    this.mostrarModal = false;
+  }
+
+  registrarUsuario() {
+    console.log('Usuario registrado:', this.nuevoUsuario);
+    this.cerrarRegistro();
   }
 }
