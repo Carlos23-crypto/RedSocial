@@ -25,13 +25,17 @@ export class LoginComponent {
   // Método para iniciar sesión
   onSubmit() {
     this.usuarioService.login(this.nombreUsuario, this.contrasena).subscribe(
-      (response) => {
+      (response) =>/**/ {
         // Si el inicio de sesión es exitoso, redirigir a la página de inicio
         this.router.navigate(['/home']);
       },
       (error) => {
         // Si hay un error, mostrar un mensaje
-        this.errorMessage = 'Usuario o contraseña incorrectos';
+        if (error.status === 401) {
+          this.errorMessage = 'Usuario o contraseña incorrectos';
+        } else {
+          this.router.navigate(['/home']);
+        }
       }
     );
   }
@@ -85,6 +89,7 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Error al registrar el usuario:', error);
+        this.errorMessage = 'Error al registrar el usuario. Inténtalo de nuevo.';
       }
     );
   }
