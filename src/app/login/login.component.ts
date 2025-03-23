@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // Importa Router para redirigir
+import { Router } from '@angular/router';
+import { Usuario } from '../../Models/usuario.model';
+import { UsuarioService } from '../Services/usuario.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   nombreUsuario: string = '';
@@ -16,32 +17,29 @@ export class LoginComponent {
   errorMessage: string = '';
   mostrarModal: boolean = false;
 
-  nuevoUsuario = {
-    nombre: '',
-    apellidoPat: '',
-    apellidoMat: '',
-    edad: null,
-    usuario: '',
-    password: ''
-  };
+  // Usar el modelo de usuario
+  nuevoUsuario: Usuario = new Usuario('', '', '', 0, '', '', null);
 
-  constructor(private router: Router) {} // Inyecta el servicio Router
+  constructor(private router: Router, private usuarioService: UsuarioService) {}
 
+  // Método para iniciar sesión
   onSubmit() {
-    // Lógica de autenticación (simulada)
-    if (this.nombreUsuario === 'Carlos' && this.contrasena === '1234') {
-      // Redirigir a la página home
-      this.router.navigate(['/home']);
-    } else {
-      // Mostrar mensaje de error si las credenciales son incorrectas
-      this.errorMessage = 'Usuario o contraseña incorrectos';
-    }
+    this.usuarioService.login(this.nombreUsuario, this.contrasena).subscribe(
+      (response) => {
+        // Si el inicio de sesión es exitoso, redirigir a la página de inicio
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        // Si hay un error, mostrar un mensaje
+        this.errorMessage = 'Usuario o contraseña incorrectos';
+      }
+    );
   }
 
   limpiarCampos() {
     this.nombreUsuario = '';
     this.contrasena = '';
-    this.errorMessage = ''; // Limpiar el mensaje de error al limpiar los campos
+    this.errorMessage = '';
   }
 
   // Métodos para manejar el modal de registro
@@ -54,8 +52,40 @@ export class LoginComponent {
     this.mostrarModal = false;
   }
 
+  // Método para manejar la selección de archivos
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.nuevoUsuario.fotoPerfil = file;
+    }
+  }
+
+  // Método para registrar un usuario
   registrarUsuario() {
-    console.log('Usuario registrado:', this.nuevoUsuario);
-    this.cerrarRegistro();
+    const formData = new FormData();
+
+    // Agregar los datos del usuario al FormData
+    formData.append('nombre', this.nuevoUsuario.nombre);
+    formData.append('apellidoPat', this.nuevoUsuario.apellidoPat);
+    formData.append('apellidoMat', this.nuevoUsuario.apellidoMat);
+    formData.append('edad', this.nuevoUsuario.edad.toString());
+    formData.append('usuario', this.nuevoUsuario.usuario);
+    formData.append('password', this.nuevoUsuario.password);
+
+    // Agregar la foto de perfil si está presente
+    if (this.nuevoUsuario.fotoPerfil) {
+      formData.append('fotoPerfil', this.nuevoUsuario.fotoPerfil);
+    }
+
+    // Enviar los datos al backend
+    this.usuarioService.registrarUsuario(formData).subscribe(
+      (response) => {
+        console.log('Usuario registrado:', response);
+        this.cerrarRegistro();
+      },
+      (error) => {
+        console.error('Error al registrar el usuario:', error);
+      }
+    );
   }
 }

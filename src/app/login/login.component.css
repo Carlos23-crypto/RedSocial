@@ -1,147 +1,128 @@
 /* Estilos generales */
 body {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Contenedor principal */
-  .login-container {
-    display: flex;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 800px;
-    height: 40vh; /* Ocupar el 70% de la altura de la pantalla */
-    margin: auto; /* Centra el contenedor horizontalmente */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centrar completamente */
-  }
-  
-  /* Parte izquierda (imagen) */
-  .login-left {
-    flex: 1;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-image {
-    max-width: 90%;
-    height: auto;
-  }
-  
-  /* Parte derecha (formulario) */
-  .login-right {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centrar el formulario dentro */
-  }
-  
-  /* Título del formulario */
-  h2 {
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-  }
-  
-  /* Grupos de formulario */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Etiquetas */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  /* Campos de texto */
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .form-input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  /* Botones */
-  .button-group {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .btn {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #5a6268;
-  }
-  
-  /* Mensaje de error */
-  .error-message {
-    color: #dc3545;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  /* Enlaces */
-  .nav-links {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .nav-links li {
-    display: inline;
-  }
-  
-  .nav-links a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
+  justify-content: center;
+  align-items: center;
+}
 
-  /* Enlace de registro */
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 900px;
+  height: 60vh;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Parte izquierda (imagen) */
+.login-left {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Parte derecha (formulario) */
+.login-right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título del formulario */
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Campos de texto */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Botones */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Enlace de registro */
 .register-link {
   text-align: center;
   margin-top: 15px;
@@ -156,7 +137,8 @@ body {
 .register-link a:hover {
   text-decoration: underline;
 }
-/* Modal */
+
+/* Estilos para el modal */
 .modal {
   display: flex;
   justify-content: center;
@@ -166,17 +148,22 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
 .modal-content {
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  width: 400px;
+  width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close {
@@ -185,4 +172,32 @@ body {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.btn-register {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background-color: #218838;
 }
